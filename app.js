@@ -3,7 +3,6 @@ let sectionEl = document.getElementById("cardSection");
 let formEl = document.getElementById("formId");
 let allDrinks = [];
 let tableEl = document.getElementById("tableID");
-console.log(1);
 formEl.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
@@ -39,7 +38,7 @@ function Drink(name, ingredients, image, isCold, isHot, price) {
     allDrinks.push(this);
 }
 Drink.prototype.render = function () {
-    console.log(5)
+    
     // createing h3 for the name of the drink
     let name = document.createElement('h3');// <h3> </h3>
     name.textContent = this.name; // <h3> the name of the drink </h3>
@@ -66,7 +65,7 @@ Drink.prototype.render = function () {
     }
 }
 Drink.prototype.renderTable = function () {
-    console.log(6)
+    
     let tr = document.createElement("tr");
     tableEl.appendChild(tr);
 
@@ -82,19 +81,19 @@ Drink.prototype.renderTable = function () {
 let latte = new Drink("Latte", ["milk", "ice", "sugar"], "./assets /latte.png", true, true, 1);
 let mocha = new Drink("mocha", ["milk", "coffee", "ice", "sugar"], "./assets /mocha.png", true, false, 2);
 let hotChocalte = new Drink("hot chocalte", ["milk", "coffee", "ice", "sugar"], "./assets /mocha.png", true, false, 2)
-console.log(2)
+
 // console.log(allDrinks.length)
 
 function renderAll() {
 
     for (let i = 0; i < allDrinks.length; i++) {
-        console.log(4)
+        
         allDrinks[i].render();
         allDrinks[i].renderTable();
-        console.log(allDrinks)
+        
 
     }
-    console.log(6)
+    
 }
 
 
@@ -111,7 +110,7 @@ function saveData(data) {
 function getData() {
     let retrievedData = localStorage.getItem("drinks");
     let arrayData = JSON.parse(retrievedData);
-console.log(3)
+
     // each object doesn't has access to render method
     if (arrayData != null) {
         for (let i = 3; i < arrayData.length; i++) {
